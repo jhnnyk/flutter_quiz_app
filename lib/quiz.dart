@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/questions_screen.dart';
 import 'package:quiz_app/start_screen.dart';
 
 class Quiz extends StatefulWidget {
-  Quiz({super.key});
-  
+  const Quiz({super.key});
+
   @override
   State<Quiz> createState() {
     return _QuizState();
@@ -11,6 +12,22 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState  extends State<Quiz> {
+  Widget? activeScreen;
+  // the above declares a variable named 'activeScreen' of type Widget, 
+  // but the '?' means it can also just be null 
+
+  @override
+  initState() {
+    activeScreen = StartScreen(switchScreen);
+    super.initState();
+  }
+
+  switchScreen() {
+    setState(() {
+      activeScreen = const QuestionsScreen();
+    });
+  }
+
   @override
   Widget build(context) {
     return MaterialApp(
@@ -26,7 +43,7 @@ class _QuizState  extends State<Quiz> {
               end: Alignment.bottomRight,
             ),
           ),
-          child: const StartScreen(),
+          child: activeScreen,
         ),
       ),
     );
