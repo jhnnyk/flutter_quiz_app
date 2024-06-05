@@ -7,7 +7,7 @@ class Logo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       'assets/images/quiz-logo.png',
-      width: 200,
+      width: 300,
     );
   }
 }
