@@ -35,7 +35,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             // the spread operator below '...' pulls the items out of
             // the returned list so that they are separate widgets
             // the Column widget won't accept a list within a list(it's children)
-            ...currentQuestion.answers.map((answer) {
+            ...currentQuestion.getShuffledAnswers().map((answer) {
               return AnswerButton(
                 answerText: answer,
                 onTap: () {},
